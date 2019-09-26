@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+    stages {
+        stage ("backup") {
+            steps {
+            powershell '''
+            $bkfolder = (Get-Date).tostring("dd-MM-yyyy-hh-mm-ss")
+            xcopy C:\\Users\\Academia\\Desktop\\ulises_Pont\\jenkins C:\\Users\\Academia\\Desktop\\ulises_Pont\\bakup_$bkfolder /i'''
+            }
+        }
+    }
+}
